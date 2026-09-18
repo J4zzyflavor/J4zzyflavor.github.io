@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ИИ-ассистенты и чат-боты для бизнеса на заказ · Михаил (jazzyflavor)</title>
+<meta name="description" content="Михаил (jazzyflavor), разработчик: ИИ-ассистенты для сайта и мессенджеров, чат по документам компании (RAG), ИИ-агенты для CRM, боты для Авито и Telegram. Рабочие прототипы, замеры качества, заказ через Kwork."/>
+<link rel="canonical" href="https://j4zzyflavor.github.io/ai/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="ИИ-ассистенты и чат-боты для бизнеса на заказ · Михаил (jazzyflavor)"/>
+<meta property="og:description" content="Ассистент на сайт, чат по документам, агент для CRM. Прототипы и замеры качества."/>
+<meta property="og:url" content="https://j4zzyflavor.github.io/ai/"/>
+<meta property="og:image" content="https://j4zzyflavor.github.io/ai/img/assistant-dialog.png"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B0E14'/%3E%3Ctext y='.9em' x='50' text-anchor='middle' font-size='62'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://j4zzyflavor.github.io/#person",
+      "name": "Михаил",
+      "alternateName": ["jazzyflavor", "J4zzyflavor", "Michail"],
+      "jobTitle": "Разработчик ИИ-ассистентов и автоматизации для бизнеса",
+      "description": "Разработчик: ИИ-ассистенты для сайта и мессенджеров, чат по документам компании (RAG), ИИ-агенты для CRM, боты для Авито и Telegram, парсеры и автоматизация.",
+      "url": "https://j4zzyflavor.github.io/ai/",
+      "knowsAbout": ["ИИ-ассистенты", "чат-боты", "RAG", "ИИ-агенты для CRM", "боты для Авито", "Telegram-боты", "автоматизация бизнес-процессов", "Python", "машинное обучение"],
+      "knowsLanguage": ["ru", "en"],
+      "sameAs": [
+        "https://kwork.ru/user/jazzyflavor",
+        "https://github.com/J4zzyflavor",
+        "https://www.kaggle.com/jazzyflavor",
+        "https://linkedin.com/in/jazzyflavor",
+        "https://t.me/Jazzyflavor"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Разработка ИИ-ассистентов и чат-ботов для бизнеса",
+      "provider": {"@id": "https://j4zzyflavor.github.io/#person"},
+      "areaServed": "RU",
+      "availableLanguage": "ru",
+      "serviceType": ["ИИ-ассистент для сайта", "чат по документам компании", "ИИ-агент для CRM", "бот для Авито", "Telegram-бот"],
+      "url": "https://kwork.ru/user/jazzyflavor"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Какую долю обращений ИИ-ассистент закрывает без человека?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Реалистичная планка для малого бизнеса: от трети до половины обращений. По отчёту Salesforce State of Service (ноябрь 2025, 6500 специалистов) ИИ обрабатывает около 30% обращений. Это типовые вопросы: цена, расписание, запись. Остальное ассистент передаёт человеку с уже собранными данными."}},
+        {"@type": "Question", "name": "Ассистент не начнёт выдумывать цены и услуги?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Ассистент отвечает только по базе знаний компании и показывает источник ответа. В тесте прототипа на 7 вопросов, ответа на которые в документах нет, модель отказалась отвечать 7 раз из 7. Из 15 вопросов по документам 14 ответов были точными, поэтому вопросы про деньги в нестандартной ситуации уходят человеку."}},
+        {"@type": "Question", "name": "Можно ли запустить ассистента без облака, чтобы документы не покидали компанию?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Да. Прототипы на этой странице работают на локальной модели qwen2.5:3b через Ollama на обычном ноутбуке (MacBook M4, 16 ГБ), ответ занимает 1-2 секунды. В боевой сборке модель выбирается под требования к хранению данных: локальная или облачная по ключу заказчика."}},
+        {"@type": "Question", "name": "Куда попадает заявка после разговора с ассистентом?",
+         "acceptedAnswer": {"@type": "Answer", "text": "В карточку с заполненными полями: имя, телефон, услуга, время. Возможна интеграция с amoCRM, Битрикс24 или Google Таблицей. Каналы: сайт, Telegram, WhatsApp, VK, Max, Авито."}},
+        {"@type": "Question", "name": "Как заказать?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Через профиль на Kwork: https://kwork.ru/user/jazzyflavor. Оплата идёт через безопасную сделку площадки: деньги исполнитель получает после того, как заказчик принял работу."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{--bg:#0B0E14;--surface:#12161F;--border:#232A33;--text:#E6EDF3;--muted:#9BA7B4;--accent:#22D3EE;--accent2:#38BDF8;--radius:16px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+  nav{border-bottom:1px solid var(--border);padding:16px 0;font-size:14px}
+  nav .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  nav a{color:var(--muted)}
+  header{padding:72px 0 40px}
+  .eyebrow{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;text-wrap:balance}
+  h2{font-size:26px;letter-spacing:-.01em;margin:56px 0 16px}
+  h3{font-size:19px;margin:0 0 8px}
+  p{color:var(--muted);margin-bottom:14px;max-width:70ch} p b, li b{color:var(--text)}
+  .lead{font-size:18px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;font-size:15px;border:1px solid var(--border);color:var(--text)}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#06121a;border:none}
+  .btn:hover{text-decoration:none;filter:brightness(1.1)}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+  .card img{width:100%;height:auto;border-radius:10px;border:1px solid var(--border);margin-top:14px;display:block}
+  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:20px 0}
+  .num{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+  .num b{display:block;font-size:26px;color:var(--accent);font-variant-numeric:tabular-nums}
+  .num span{color:var(--muted);font-size:14px}
+  ul{margin:0 0 14px 20px;color:var(--muted)} li{margin-bottom:6px}
+  details{border-bottom:1px solid var(--border);padding:16px 0}
+  summary{cursor:pointer;font-weight:600;font-size:17px}
+  details p{margin-top:10px}
+  footer{border-top:1px solid var(--border);margin-top:72px;padding:28px 0;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="/">← j4zzyflavor.github.io</a>
+  <span><a href="https://kwork.ru/user/jazzyflavor" rel="me">Kwork</a> · <a href="https://github.com/J4zzyflavor" rel="me">GitHub</a> · <a href="https://t.me/Jazzyflavor" rel="me">Telegram</a></span>
+</div></nav>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Михаил · jazzyflavor</div>
+  <h1>ИИ&#8209;ассистенты и чат&#8209;боты для бизнеса на заказ</h1>
+  <p class="lead">Делаю ассистентов, которые отвечают клиентам по вашему прайсу и документам, записывают на услугу и заводят сделку в CRM. Отвечают ночью и в выходные, ничего не выдумывают, а сложное передают человеку.</p>
+  <p>Более 150 проектов, опыт более 3 лет. Руководил аутсорс-разработкой в AI-компании. Python, JavaScript, LLM, RAG, интеграции по API.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://kwork.ru/user/jazzyflavor">Заказать на Kwork</a>
+    <a class="btn" href="#demo">Посмотреть прототипы</a>
+  </div>
+</header>
+
+<h2>Что делаю</h2>
+<ul>
+  <li><b>ИИ-ассистент для сайта и мессенджеров.</b> Отвечает по базе знаний компании, записывает на услугу, передаёт заявку с заполненными полями. Каналы: сайт, Telegram, WhatsApp, VK, Max.</li>
+  <li><b>Чат по документам компании (RAG).</b> Отвечает по регламентам, договорам и инструкциям с цитатой и номером страницы. Если ответа в документах нет, так и говорит.</li>
+  <li><b>ИИ-агент для CRM.</b> Принимает входящую заявку, уточняет детали по сценарию отдела продаж и заводит сделку в amoCRM, Битрикс24 или Google Таблице.</li>
+  <li><b>Боты для Авито и Telegram.</b> Автоответы, квалификация обращений, уведомления.</li>
+  <li><b>Автоматизация.</b> Парсеры сайтов и маркетплейсов, сценарии n8n, макросы VBA и Apps Script, интеграции сервисов.</li>
+</ul>
+
+<h2 id="demo">Рабочие прототипы</h2>
+<p>Компании и данные в прототипах вымышленные. Модель, диалоги и цифры настоящие: все реплики получены прогоном модели, ни одна не написана руками.</p>
+
+<div class="card">
+  <h3>Ассистент на сайте автосервиса</h3>
+  <p>Отвечает по прайсу и расписанию, записывает на услугу за 3-5 реплик. На вопрос о цене, которой нет в базе, называет нижнюю границу и предлагает диагностику. Услугу, которую сервис не оказывает, не придумывает, а передаёт вопрос мастеру. Заявки с именем, телефоном, услугой и временем ложатся в панель владельца.</p>
+  <img src="img/assistant-dialog.png" width="1440" height="960" loading="lazy" alt="Диалог ИИ-ассистента на сайте автосервиса: вопросы о ценах и расписании, начало записи на услугу"/>
+  <img src="img/assistant-panel.png" width="1440" height="960" loading="lazy" alt="Панель владельца автосервиса: заявки от ИИ-ассистента, диалоги и частые вопросы клиентов"/>
+</div>
+
+<div class="card">
+  <h3>Чат по документам компании</h3>
+  <p>Три регламента склада, 21 фрагмент. Поиск гибридный: смысловая близость плюс совпадение слов. Ответ идёт со ссылкой на файл и страницу, кнопка открывает документ с подсвеченным предложением. Вопросы без ответа складываются в список для отдела: из него видно, чего в регламентах не хватает.</p>
+  <img src="img/rag-answers.png" width="1440" height="960" loading="lazy" alt="Чат по документам компании: ответы с указанием файла и страницы, найденные фрагменты с процентом сходства"/>
+</div>
+
+<div class="card">
+  <h3>ИИ-агент для CRM оконной компании</h3>
+  <p>Понимает свободный текст клиента, задаёт только недостающие вопросы по сценарию отдела продаж, отвечает на встречный вопрос о цене и возвращается к сценарию. Когда данные собраны, создаёт сделку на доске с расшифровкой разговора.</p>
+  <img src="img/crm-agent.png" width="1440" height="960" loading="lazy" alt="ИИ-агент принимает заявку в чате и создаёт сделку на канбан-доске CRM"/>
+</div>
+
+<h2>Замеры качества</h2>
+<p>Прототип чата по документам проверен на 22 вопросах: 15 по документам и 7 посторонних. Локальная модель qwen2.5:3b и эмбеддер nomic-embed-text через Ollama, MacBook M4 16 ГБ, прогон 18.09.2026.</p>
+<div class="nums">
+  <div class="num"><b>15 из 15</b><span>нужный абзац на первом месте при гибридном поиске (чистый косинус: 6 из 15)</span></div>
+  <div class="num"><b>7 из 7</b><span>отказов на вопросы, ответа на которые в документах нет</span></div>
+  <div class="num"><b>14 из 15</b><span>точных ответов с дословными цифрами из документа</span></div>
+  <div class="num"><b>1-2 с</b><span>время ответа локальной модели на ноутбуке</span></div>
+</div>
+<p>Один ответ из пятнадцати модель дала неполным. Поэтому ассистент всегда показывает источник, а вопросы про деньги в нестандартной ситуации передаёт человеку.</p>
+
+<h2>Вопросы и ответы</h2>
+<details><summary>Какую долю обращений ИИ-ассистент закрывает без человека?</summary>
+<p>Реалистичная планка для малого бизнеса: от трети до половины. По отчёту <a href="https://www.salesforce.com/news/stories/state-of-service-report-announcement-2025/">Salesforce State of Service</a> (ноябрь 2025, 6500 специалистов) ИИ обрабатывает около 30% обращений. Это типовые вопросы: цена, расписание, запись. Остальное ассистент передаёт человеку с уже собранными данными.</p></details>
+<details><summary>Ассистент не начнёт выдумывать цены и услуги?</summary>
+<p>Он отвечает только по базе знаний компании и показывает источник. В тесте прототипа модель отказалась отвечать на все 7 вопросов, ответа на которые в документах не было.</p></details>
+<details><summary>Можно ли без облака, чтобы документы не покидали компанию?</summary>
+<p>Да. Прототипы работают на локальной модели на обычном ноутбуке. В боевой сборке модель выбирается под требования к хранению данных: локальная или облачная по ключу заказчика.</p></details>
+<details><summary>Куда попадает заявка?</summary>
+<p>В карточку с заполненными полями: имя, телефон, услуга, время. Интеграции: amoCRM, Битрикс24, Google Таблицы. Каналы: сайт, Telegram, WhatsApp, VK, Max, Авито.</p></details>
+<details><summary>Как заказать?</summary>
+<p>Через <a href="https://kwork.ru/user/jazzyflavor">профиль на Kwork</a>. Напишите задачу своими словами, назову точную цену и срок. Оплата идёт через безопасную сделку площадки: деньги я получаю после того, как вы приняли работу.</p></details>
+
+<div class="cta" style="margin-top:40px">
+  <a class="btn primary" href="https://kwork.ru/user/jazzyflavor">Профиль и отзывы на Kwork</a>
+  <a class="btn" href="https://github.com/J4zzyflavor">Код на GitHub</a>
+</div>
+</div>
+
+<footer><div class="wrap">Михаил (jazzyflavor) · разработчик ИИ-ассистентов и автоматизации для бизнеса · <a href="/">портфолио Data Science</a></div></footer>
+</body>
+</html>
